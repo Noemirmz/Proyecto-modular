@@ -1,0 +1,77 @@
+<!-- 
+      Problema: hacer que la grafica tome los datos del arduino
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS only -->
+
+    <link rel="stylesheet" href="estilos.css">
+
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-polar.min.js"></script>
+
+    <title>MODULAR</title>
+
+</head>
+
+<body>
+    <header>
+
+        <h1>FOTOGONIOMETRO</h1>
+        
+    </header>
+
+    <main>
+
+        <h2> Graficas </h2>
+        <div id="container"></div>
+
+        <!--Lugar de entrada de un código G de libre -->
+        <form action="/SetText" method="post">
+
+
+            <h2>Posiciones iniciales del fotogoniómetro</h2>
+            <label for="POST-hipo">Introduzca la distancia sensor-fuente</label>
+            <input type="text" id="POST-hipo" name="hipotenusa">
+            <label for="POST-dist">Introduzca el angulo</label>
+            <input type="text" id="POST-dist" name="angulo">
+            <label for="POST-angF">Introduzca la separación en grados de las mediciones en el foco</label>
+            <input type="text" id="POST-angF" name="anguloFoco">            
+            <button class="boton codigoglibre" type="submit" value="Submit">Enviar</button>
+
+            
+        </form>
+
+        <form action="/Libre" method="post">
+            <label for="POST-libre">Introducir codigo G</label>
+            <input type="text" id="POST-libre" name="codigog">            
+            <button class="boton codigoglibre" type="submit" value="Submit">Enviar</button>
+
+        </form>
+
+        <!-- Seccion que indica el estado del fotogoniometro y da inicio-->
+        <section class="iniciarutina">
+
+
+            <h2>Una vez que hayas elegido las posiciones puedes iniciar</h2>
+            <p><button class="boton iniciar" onclick=location.href="/ON">Iniciar Rutina</button></p>
+            <p><button id ="obtener" class="boton graficar" >Graficar</button></p>
+            <p><button class="boton apagar" onclick=location.href="/OFF">Apagar</button></p>
+            <p class="estado">Estado: %ESTADO%</p>
+
+
+        </section>
+    </main>
+
+    <script src="diseno.js" charset="utf-8"></script>
+
+</body>
+
+</html>
