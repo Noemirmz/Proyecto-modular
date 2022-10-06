@@ -20,6 +20,7 @@ grafica.addEventListener('click', function(){
 
 
     fetch('http://192.168.1.95/DATA')
+    //fetch('http://192.168.100.9/DATA')
     .then(res => {
 
 
